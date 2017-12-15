@@ -1,0 +1,19 @@
+
+# 项目配置
+project:
+  name: weituanzuo
+  debug: true
+  secret_key: how do you turn this on
+  allowed_hosts:
+   - www.example.com
+   - 127.0.0.1
+
+# 数据库配置
+db:
+  default:
+    engine: django.db.backends.sqlite3
+    host:
+    port:
+    name: db.sqlite3
+    user:
+    password:

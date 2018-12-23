@@ -43,7 +43,6 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
-        db_table = 'user_user'
         verbose_name = verbose_name_plural = '基础用户表'
 
     email = models.EmailField(_('Email'), blank=True, unique=True)

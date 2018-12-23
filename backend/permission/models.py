@@ -8,7 +8,6 @@ from config.settings import AUTH_USER_MODEL
 
 class Group(Model):
     class Meta:
-        db_table = 'permission_group'
         verbose_name = verbose_name_plural = '用户组'
 
     name = models.CharField(_('组名'), max_length=64)

@@ -10,7 +10,6 @@ from config.settings import AUTH_USER_MODEL
 
 class Project(Model):
     class Meta:
-        db_table = 'tuanzuo_project'
         verbose_name = verbose_name_plural = '团作项目'
 
     name = models.CharField(_('名称'), max_length=64, blank=True, default='')

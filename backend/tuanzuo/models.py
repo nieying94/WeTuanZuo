@@ -19,7 +19,10 @@ class Project(Model):
     end = models.DateTimeField(_('结束日期'), default=timezone.now)
     description = models.TextField(_('描述'), blank=True, default='')
 
-    created_by = models.ForeignKey(AUTH_USER_MODEL, _('创建人'))
+    created_by = models.ForeignKey(
+        AUTH_USER_MODEL, models.SET_NULL, verbose_name=_('创建人'),
+        blank=True, null=True, default=None
+    )
     created_at = models.DateTimeField(_('加入时间'), default=timezone.now)
 
     def __str__(self):

@@ -13,7 +13,7 @@ class Group(Model):
 
     name = models.CharField(_('组名'), max_length=64)
     description = models.TextField(_('描述'), blank=True, default='')
-    users = models.ManyToManyField(AUTH_USER_MODEL, _('用户'))
+    users = models.ManyToManyField(AUTH_USER_MODEL, verbose_name=_('用户'))
     created_at = models.DateTimeField(_('加入时间'), default=timezone.now)
 
     def __str__(self):
@@ -33,7 +33,10 @@ class Permission(Model):
 
     key = models.IntegerField(_('模块KEY'), choices=KEY_CHOICES,
                               default=KEY_DEFAULT)
-    group = models.ForeignKey(Group, _('用户组'))
+    group = models.ForeignKey(
+        Group, models.SET_NULL, verbose_name=_('用户组'),
+        blank=True, null=True, default=None
+    )
 
     has_permission = models.BooleanField(_('是否有权限'), default=False)
 

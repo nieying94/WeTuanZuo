@@ -1,5 +1,5 @@
 // https://eslint.org/docs/user-guide/configuring
-
+//代码规范
 module.exports = {
   root: true,
   parserOptions: {

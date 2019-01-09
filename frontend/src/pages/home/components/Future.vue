@@ -4,7 +4,7 @@
     <ul class="contain">
       <li
         class="item"
-        v-for="item of recommendList"
+        v-for="item of list"
         :key="item.id"
       >
         <div class="item-img">
@@ -23,30 +23,8 @@
 <script>
 export default {
   name: 'HomeList',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: '//g-search2.alicdn.com/img/bao/uploaded/i4/i1/675231568/TB2bYHJvHsrBKNjSZFpXXcXhFXa_!!675231568-0-item_pic.jpg_360x360Q90.jpg_.webp',
-        title: '飞鱼-圣诞福利团',
-        data: '1月30日'
-      }, {
-        id: '0002',
-        imgUrl: '//g-search2.alicdn.com/img/bao/uploaded/i4/i3/55603886/TB2cvpCtUR1BeNjy0FmXXb0wVXa_!!55603886.jpg',
-        title: '卷福娜-创意水桶包',
-        data: '1月30日'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img2.tbcdn.cn/tfscom/i4/689430387/TB2EuVutXXXXXXeXpXXXXXXXXXX_!!689430387.jpg_140x140.jpg',
-        title: '阿欢-大棕包团作',
-        data: '1月30日'
-      }, {
-        id: '0004',
-        imgUrl: 'http://img1.tbcdn.cn/tfscom/i2/TB1sNFVSFXXXXXrXXXXXXXXXXXX_!!0-item_pic.jpg_140x140.jpg',
-        title: 'SQQ-周年庆福利团',
-        data: '1月30日'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

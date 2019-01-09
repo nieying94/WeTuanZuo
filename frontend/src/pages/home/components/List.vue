@@ -4,7 +4,7 @@
     <ul>
       <li
         class="item border-bottom"
-        v-for="item of recommendList"
+        v-for="item of list"
         :key="item.id"
       >
         <img class="item-img" :src="item.imgUrl" />
@@ -25,45 +25,8 @@
 <script>
 export default {
   name: 'HomeList',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.tbcdn.cn/tfscom/i2/TB158PsIpXXXXc6XXXXXXXXXXXX_!!0-item_pic.jpg_140x140.jpg',
-        title: '飞鱼-圣诞福利团',
-        desc: '10.5cm四片式小奶瓜，get四片式拼接技巧',
-        grade: '初级',
-        methods: '视频讲解'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img4.tbcdn.cn/tfscom/i3/TB1DsQvIFXXXXcWaXXXXXXXXXXX_!!0-item_pic.jpg_140x140.jpg',
-        title: '卷福娜-创意水桶包',
-        desc: '四片拼接式水桶包，get拉链拼接包身技巧',
-        grade: '中级',
-        methods: '视频讲解+图文辅助'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img2.tbcdn.cn/tfscom/i4/689430387/TB2EuVutXXXXXXeXpXXXXXXXXXX_!!689430387.jpg_140x140.jpg',
-        title: '阿欢-大棕包团作',
-        desc: '大容量单肩包，get皮条裁切技巧',
-        grade: '中级',
-        methods: '视频讲解+图文辅助'
-      }, {
-        id: '0004',
-        imgUrl: 'http://img1.tbcdn.cn/tfscom/i2/TB1sNFVSFXXXXXrXXXXXXXXXXXX_!!0-item_pic.jpg_140x140.jpg',
-        title: 'SQQ-周年庆福利团',
-        desc: '钱包、方包套包，get风琴褶卡位制作技巧',
-        grade: '中级',
-        methods: '视频讲解'
-      }, {
-        id: '0005',
-        imgUrl: 'http://img2.tbcdn.cn/tfscom/i4/TB1_Vl.GXXXXXb4aXXXXXXXXXXX_!!0-item_pic.jpg_140x140.jpg',
-        title: '恋念依旧-大小方包',
-        desc: '实用方包，get内包边制作技巧',
-        grade: '初级',
-        methods: '图文教程'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

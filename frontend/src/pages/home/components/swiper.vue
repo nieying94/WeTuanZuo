@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
-      <swiper-slide v-for="item of swiperList" :key="item.id">
+    <swiper :options="swiperOption" v-if="showSwiper">
+      <swiper-slide v-for="item of list" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" />
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -12,19 +12,20 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination', // 轮播图片指示点
         loop: true // 轮播插件支持循环轮播
-      },
-      swiperList: [{
-        id: '0001',
-        imgUrl: 'http://imgs.shougongke.com//Public/data/lunbo/fdfktywRym.jpg'
-      }, {
-        id: '0002',
-        imgUrl: 'http://imgs.shougongke.com//Public/data/lunbo/fZD4jAw5kM.jpg'
-      }]
+      }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }

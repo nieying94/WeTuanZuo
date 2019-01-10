@@ -2,10 +2,12 @@
   <div>
     <div class="title">团作推荐</div>
     <ul>
-      <li
+      <routerLink
+        tag="li"
         class="item border-bottom"
         v-for="item of list"
         :key="item.id"
+        :to="'/detail/' + item.id"
       >
         <img class="item-img" :src="item.imgUrl" />
         <div class="item-info">
@@ -16,7 +18,7 @@
             <span class="bottom-methods">{{item.methods}}</span>
           </div>
         </div>
-      </li>
+      </routerLink>
     </ul>
     <button class="item-button border-bottom">查看所有团作</button>
   </div>

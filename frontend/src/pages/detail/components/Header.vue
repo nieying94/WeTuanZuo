@@ -46,8 +46,11 @@ export default {
       }
     }
   },
-  activated () {
+  mounted () {
     window.addEventListener('scroll', this.handleScroll)
+  },
+  beforeUnmount () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
@@ -72,6 +75,7 @@ export default {
     left: 0
     top: 0
     right: 0
+    z-index: 2
     height: $headerHeight
     line-height: $headerHeight
     text-align: center

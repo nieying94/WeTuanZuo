@@ -23,6 +23,7 @@ export default {
   data () {
     return {
       swiperOption: {
+        loop: true,
         pagination: '.swiper-pagination',
         paginationType: 'fraction',
         observeParents: true, // 将observe应用于Swiper的父元素。当Swiper的父元素变化时，例如window.resize，Swiper更新。

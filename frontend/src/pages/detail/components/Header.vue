@@ -18,7 +18,6 @@
       </router-link>
       团作详情
     </div>
-    <div class="block"></div>
   </div>
 </template>
 
@@ -90,6 +89,4 @@ export default {
       text-align: center
       font-size: .6rem
       color: #fff
-  .block
-    height: 100rem
 </style>

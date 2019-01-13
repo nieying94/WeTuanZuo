@@ -1,0 +1,49 @@
+{
+	"ret": true,
+	"data":{
+    "bannerImg": "https://wx4.sinaimg.cn/orj360/ab7df37ely1fypnqwtd3gj20v70kuae1.jpg",
+    "gallaryImgs":["http://image.shougongke.com/topic/course/3183/main/1533025695_8ycb2fzyt7.jpg", "http://image.shougongke.com/topic/course/3196/main/1533549001_w4s8p3sfn4.jpg", "http://image.shougongke.com/topic/course/3538/1546588821_2diiz28yfp.jpg", "http://image.shougongke.com/topic/course/2815/main/1517971726_peefwswmk4.jpg", "http://image.shougongke.com/topic/course/3228/main/1534748128_87iwyfb7jf.jpg", "http://image.shougongke.com/topic/course/3211/main/1534151577_kxpit4stpx.jpg", "http://image.shougongke.com/topic/shiji/2122/main/1536822699_458xyf5yf4.jpg?x-oss-process=image/resize,m_fill,w_560"],
+    "detailImgs": [{
+      "id": "0001",
+      "imgUrl": "https://wx3.sinaimg.cn/orj360/ab7df37ely1fyirsqkf18j20v70kugp3.jpg"
+    }, {
+      "id": "0002",
+      "imgUrl": "https://wx2.sinaimg.cn/orj360/ab7df37ely1fyirsr2oohj20v70kudjo.jpg"
+    }, {
+      "id": "0003",
+      "imgUrl": "https://wx2.sinaimg.cn/orj360/ab7df37ely1fyirsr8ibvj20v70kun10.jpg"
+    }, {
+      "id": "0004",
+      "imgUrl": "https://wx2.sinaimg.cn/orj360/ab7df37ely1fyirtjk2afj239t26mhdt.jpg"
+    }, {
+      "id": "0005",
+      "imgUrl": "https://wx1.sinaimg.cn/orj360/ab7df37ely1fypnqvcjgoj20v70kuq6g.jpg"
+    }, {
+      "id": "0006",
+      "imgUrl": "https://wx4.sinaimg.cn/orj360/ab7df37ely1fypnq6ust0j239t26m1kx.jpg"
+    }, {
+      "id": "0007",
+      "imgUrl": "https://wx1.sinaimg.cn/orj360/ab7df37ely1fypnqx4kn1j239t26m4qp.jpg"
+    }, {
+      "id": "0008",
+      "imgUrl": "https://wx4.sinaimg.cn/orj360/ab7df37ely1fypnq6ust0j239t26m1kx.jpg"
+    }],
+    "skiList": [{
+      "id": "0001",
+      "text": "四片式口金包做法"
+    }, {
+      "id": "0002",
+      "text": "底部十字型拼接技巧"
+    }, {
+      "id": "0003",
+      "text": "无孔口金制作方法"
+    }, {
+      "id": "0004",
+      "text": "尾夹提手制作方法"
+    }],
+    "author": {
+      "imgUrl": "https://tva3.sinaimg.cn/crop.0.0.664.664.180/ab7df37ejw8f0fsjmib16j20ig0ig404.jpg",
+      "introText": "飞鱼小栈，手工爱好者，喜爱制作各种手工：钩编、中国结、纸雕、拼布、口金包。主页开手工体验店，副业拍摄教程开团作"
+    }
+  }
+}

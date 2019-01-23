@@ -1,26 +1,24 @@
 <template>
   <div>
-    <div class="title">团作推荐</div>
-    <ul>
-      <routerLink
-        tag="li"
-        class="item border-bottom"
-        v-for="item of list"
-        :key="item.id"
-        :to="'/detail/' + item.id"
-      >
-        <img class="item-img" :src="item.imgUrl" />
-        <div class="item-info">
-          <p class="item-title">{{item.title}}</p>
-          <p class="iten-desc">{{item.desc}}</p>
-          <div class="item-bottom">
-            <span class="bottom-grade">{{item.grade}}</span>
-            <span class="bottom-methods">{{item.methods}}</span>
+      <ul>
+        <routerLink
+          tag="li"
+          class="item border-bottom"
+          v-for="item of list"
+          :key="item.id"
+          :to="'/detail/' + item.id"
+        >
+          <img class="item-img" :src="item.imgUrl" />
+          <div class="item-info">
+            <p class="item-title">{{item.title}}</p>
+            <p class="iten-desc">{{item.desc}}</p>
+            <div class="item-bottom">
+              <span class="bottom-grade">{{item.grade}}</span>
+              <span class="bottom-methods">{{item.methods}}</span>
+            </div>
           </div>
-        </div>
-      </routerLink>
-    </ul>
-    <button class="item-button border-bottom">查看所有团作</button>
+        </routerLink>
+      </ul>
   </div>
 </template>
 
@@ -34,14 +32,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~styles/varibles.styl'
-@import '~styles/mixins.styl'
-  .title
-    line-height: .7rem
-    font-size: .32rem
-    text-indent: .2rem
-    background: #eee
-    margin-top: .1rem
+  @import '~styles/varibles.styl'
+  @import '~styles/mixins.styl'
   .item
     display: flex
     height: 2rem
@@ -75,9 +67,4 @@ export default {
         float: right
         margin-right: .2rem
         color: #4F4F4F
-  .item-button
-    width: 100%
-    line-height: .8rem
-    background: #fff
-    color: #ff7575
 </style>

@@ -1,5 +1,8 @@
 <template>
   <div>
+    <router-link to="/list">
+      <button class="item-button border-bottom">查看所有团作</button>
+    </router-link>
     <div class="title">即将开始</div>
     <ul class="contain">
       <li
@@ -32,6 +35,11 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
 @import '~styles/mixins.styl'
+  .item-button
+    width: 100%
+    line-height: .8rem
+    background: #fff
+    color: #ff7575
   .title
     line-height: .6rem
     text-indent: .2rem

@@ -37,7 +37,7 @@ export default {
       if (res.ret && res.data) {
         const data = res.data
         this.swiperlist = data.swiperList
-        this.itemList = data.itemList
+        this.itemList = data.itemList.slice(0, 5)
         this.futureList = data.futureList
       }
     }

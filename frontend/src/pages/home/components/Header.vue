@@ -23,6 +23,11 @@ export default {
   @import '~styles/varibles.styl';
   .header
     display: flex
+    position: fixed
+    left: 0
+    top: 0
+    right: 0
+    z-index: 2
     line-height: $headerHeight
     background-color:$bgColor
     color: #fff

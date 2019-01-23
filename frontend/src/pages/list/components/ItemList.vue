@@ -39,13 +39,14 @@ export default {
   },
   methods: {
     infinite (done) {
-      console.log('infinite')
-      this.$parent.getHomeInfo(done)
-    },
+      this.timeout = setTimeout(() => {
+        this.$parent.getHomeInfo(done)
+      }, 1500)
+    }, // done为传入的函数，表示状态（加载中、加载完成）
     refresh: function (done) {
-      console.log('refresh')
-      // this.$refs.my_scroller.finishPullToRefresh()
-      done()
+      this.timeout = setTimeout(() => {
+        this.list = []
+      }, 1500)
     }
   }
 }

@@ -43,6 +43,12 @@ export default {
         this.itemList.push(...data.itemList)
         this.page++
       }
+    },
+    getHomerefresh (done) {
+      console.log('getRefresh')
+      this.ItemList = []
+      this.page = 1
+      this.getHomeInfo(done)
     }
   },
   mounted () {

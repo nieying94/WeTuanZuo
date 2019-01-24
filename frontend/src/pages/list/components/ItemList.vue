@@ -45,7 +45,9 @@ export default {
     }, // done为传入的函数，表示状态（加载中、加载完成）
     refresh: function (done) {
       this.timeout = setTimeout(() => {
-        this.list = []
+        console.log('refresh')
+        this.$parent.getHomerefresh(done)
+        done && done(true)
       }, 1500)
     }
   }

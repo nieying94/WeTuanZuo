@@ -10,6 +10,7 @@
       :list="skiList"
       :author="author"
     ></detail-introduction>
+    <detail-footer></detail-footer>
   </div>
 </template>
 
@@ -17,6 +18,7 @@
 import DetailBanner from './components/Banner'
 import DetailHeader from './components/Header'
 import DetailIntroduction from './components/Introduction'
+import DetailFooter from './components/Footer'
 import axios from 'axios'
 export default {
   name: 'Detail',
@@ -32,7 +34,8 @@ export default {
   components: {
     DetailBanner,
     DetailHeader,
-    DetailIntroduction
+    DetailIntroduction,
+    DetailFooter
   },
   methods: {
     getDetailInfo () {

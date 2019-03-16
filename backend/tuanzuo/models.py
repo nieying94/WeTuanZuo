@@ -1,7 +1,6 @@
 from django.db import models
 from django.db.models import Model
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
 
 from config.settings import AUTH_USER_MODEL
 
@@ -12,17 +11,40 @@ class Project(Model):
     class Meta:
         verbose_name = verbose_name_plural = '团作项目'
 
-    name = models.CharField(_('名称'), max_length=64, blank=True, default='')
-    logo = models.URLField(_('Logo'), blank=True, default='')
-    start = models.DateTimeField(_('开始日期'), default=timezone.now)
-    end = models.DateTimeField(_('结束日期'), default=timezone.now)
-    description = models.TextField(_('描述'), blank=True, default='')
+    GRADE_BEGINNER = 1
+    GRADE_INTERMEDIATE = 2
+    GRADE_ADVANCED = 3
+    
+    GRADE_CHOICES = (
+        (GRADE_BEGINNER, '初级'),
+        (GRADE_INTERMEDIATE, '中级'),
+        (GRADE_BEGINNER, '高级'),
+    )
+
+    name = models.CharField('名称', max_length=64, blank=True, default='')
+    logo = models.URLField('Logo', blank=True, default='')
+    simple_description = models.CharField('简介', blank=True,
+                                          max_length=256, default='')
+
+    grade = models.SmallIntegerField('难度', choices=GRADE_CHOICES,
+                                     default=GRADE_BEGINNER)
+
+    video_tutorial = models.BooleanField('有视频讲解', default=False)
+    text_tutorial = models.BooleanField('有图文教程', default=False)
+
+    start = models.DateTimeField('开始日期', default=timezone.now)
+    end = models.DateTimeField('结束日期', default=timezone.now)
+
+    description = models.TextField('详细描述', blank=True, default='')
 
     created_by = models.ForeignKey(
-        AUTH_USER_MODEL, models.SET_NULL, verbose_name=_('创建人'),
+        AUTH_USER_MODEL, models.SET_NULL, verbose_name='创建人',
         blank=True, null=True, default=None
     )
-    created_at = models.DateTimeField(_('加入时间'), default=timezone.now)
+    created_at = models.DateTimeField('加入时间', default=timezone.now)
+
+    swiper = models.BooleanField('首页轮播展示', default=False)
+    recommend = models.BooleanField('首页推荐展示', default=False)
 
     def __str__(self):
         return self.name

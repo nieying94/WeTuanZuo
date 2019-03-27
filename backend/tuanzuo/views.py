@@ -16,7 +16,7 @@ class ProjectListSerializer(serializers.ModelSerializer):
 
 
 class ProjectFilterSet(FilterSet):
-    will_start = BooleanFilter(method='start_gte_now')
+    future = BooleanFilter(method='start_gte_now')
 
     def start_gte_now(self, queryset, name, value):
         print(123)
@@ -27,7 +27,7 @@ class ProjectFilterSet(FilterSet):
     class Meta:
         model = Project
         fields = ['grade', 'video_tutorial', 'swiper',
-                  'recommend', 'will_start']
+                  'recommend', 'future']
 
 
 class ProjectListApiView(generics.ListAPIView):

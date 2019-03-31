@@ -1,3 +1,6 @@
 django==2.1.7
 PyYAML==3.13
 djangorestframework==3.9.2
+django-cors-headers==2.5.2
+django-filter==2.1.0
+django-extensions==2.1.6

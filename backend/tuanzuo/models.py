@@ -1,8 +1,13 @@
+from django.conf import settings
 from django.db import models
 from django.db.models import Model
 from django.utils import timezone
+from django_extensions.db.fields.json import JSONField
 
 from config.settings import AUTH_USER_MODEL
+
+auth_user_model = getattr(settings, 'AUTH_USER_MODEL', 'backend.user.User')
+
 
 # Create your models here.
 
@@ -14,7 +19,7 @@ class Project(Model):
     GRADE_BEGINNER = 1
     GRADE_INTERMEDIATE = 2
     GRADE_ADVANCED = 3
-    
+
     GRADE_CHOICES = (
         (GRADE_BEGINNER, '初级'),
         (GRADE_INTERMEDIATE, '中级'),
@@ -35,6 +40,7 @@ class Project(Model):
     start = models.DateTimeField('开始日期', default=timezone.now)
     end = models.DateTimeField('结束日期', default=timezone.now)
 
+    images = JSONField('图片列表', blank=True, default=[])
     description = models.TextField('详细描述', blank=True, default='')
 
     created_by = models.ForeignKey(
@@ -42,7 +48,6 @@ class Project(Model):
         blank=True, null=True, default=None
     )
     created_at = models.DateTimeField('加入时间', default=timezone.now)
-
     swiper = models.BooleanField('首页轮播展示', default=False)
     recommend = models.BooleanField('首页推荐展示', default=False)
 

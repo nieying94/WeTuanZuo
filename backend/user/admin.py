@@ -23,6 +23,8 @@ class UserAdmin(AuthUserAdmin):
             'email',
             'username',
             'password',
+            'avatar',
+            'simple_description'
         )}),
         ('其他信息', {'fields': (
             'is_staff',

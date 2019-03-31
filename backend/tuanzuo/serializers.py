@@ -7,6 +7,16 @@ from backend.user.serializers import AuthorSerializer
 from .models import Project
 
 
+class JSONSerializerField(serializers.Field):
+    """ Serializer for JSONField -- required to make field writable"""
+
+    def to_internal_value(self, data):
+        return data
+
+    def to_representation(self, value):
+        return value
+
+
 class ProjectListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
@@ -17,6 +27,7 @@ class ProjectListSerializer(serializers.ModelSerializer):
 
 class ProjectDetailSerializer(serializers.ModelSerializer):
     created_by = AuthorSerializer(read_only=True)
+    images = JSONSerializerField()
 
     class Meta:
         model = Project

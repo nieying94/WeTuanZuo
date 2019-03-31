@@ -50,7 +50,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(_('是否为管理员'), default=False)
     created_at = models.DateTimeField(_('加入时间'), default=timezone.now)
 
-    avatar = models.CharField(u"头像", max_length=256, default="", blank=True)
+    avatar = models.URLField(u"头像", max_length=256, default="", blank=True)
     simple_description = models.CharField('简介', blank=True,
                                           max_length=256, default='')
 

@@ -15,10 +15,10 @@
           :key="item.index"
           :to="'/detail/' + item.id"
         >
-          <img class="item-img" :src="item.imgUrl" />
+          <img class="item-img" :src="item.logo" />
           <div class="item-info">
-            <p class="item-title">{{item.title}}</p>
-            <p class="iten-desc">{{item.desc}}</p>
+            <p class="item-title">{{item.name}}</p>
+            <p class="iten-desc">{{item.simple_description}}</p>
             <div class="item-bottom">
               <span class="bottom-grade">{{item.grade}}</span>
               <span class="bottom-methods">{{item.methods}}</span>
@@ -45,7 +45,6 @@ export default {
     }, // done为传入的函数，表示状态（加载中、加载完成）
     refresh: function (done) {
       this.timeout = setTimeout(() => {
-        console.log('refresh')
         this.$parent.getHomerefresh(done)
         done && done(true)
       }, 1500)
@@ -55,8 +54,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  @import '~styles/varibles.styl'
-  @import '~styles/mixins.styl'
+@import '~styles/varibles.styl';
+@import '~styles/mixins.styl'
   .infinite-circel
     margin-top: $headerHeight
     .item

@@ -39,21 +39,18 @@ export default {
   },
   methods: {
     getDetailInfo () {
-      axios.get('/api/detail.json', {
-        params: {
-          id: this.$route.params.id
-        }
+      axios.get('/api/v1/projects/' + this.$route.params.id + '/', {
       }).then(this.handleGetDataSucc)
     },
     handleGetDataSucc (res) {
       res = res.data
-      if (res.ret && res.data) {
-        const data = res.data
-        this.bannerImg = data.bannerImg
-        this.gallaryImgs = data.gallaryImgs
-        this.detailImgs = data.detailImgs
-        this.skiList = data.skiList
-        this.author = data.author
+      console.log(res)
+      if (res) {
+        this.bannerImg = res.logo
+        this.gallaryImgs = res.gallaryImgs
+        this.detailImgs = res.detailImgs
+        this.skiList = res.skiList
+        this.author = res.author
       }
     }
   },

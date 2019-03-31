@@ -11,11 +11,11 @@
         :key="item.id"
       >
         <div class="item-img">
-          <img class="item-img-content" :src="item.imgUrl" />
+          <img class="item-img-content" :src="item.logo" />
         </div>
-        <p class="item-title">{{item.title}}</p>
+        <p class="item-title">{{item.name}}</p>
         <div class="item-desc">
-          <span class="item-bigining">{{item.data}}</span>
+          <span class="item-bigining">{{item.start}}</span>
           <button class="item-buttom">期待</button>
         </div>
       </li>

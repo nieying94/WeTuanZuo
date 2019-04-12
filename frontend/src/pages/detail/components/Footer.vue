@@ -20,15 +20,15 @@ export default {
   name: 'DetailFooter',
   data () {
     return {
-      normal: true,
       showDialog: false,
-      show: false
+      show: false,
+      normal: true
     }
   },
   methods: {
     handleButtonClick () {
       this.showDialog = true
-      this.show = true
+      this.show = true  // dev 2
     },
     handelDialogClick () {
       this.showDialog = false

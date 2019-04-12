@@ -21,14 +21,24 @@ export default {
   data () {
     return {
       showDialog: false,
+<<<<<<< HEAD
       normal: true,
       show: false
+=======
+      show: false,
+      normal: true
+>>>>>>> dev_2
     }
   },
   methods: {
     handleButtonClick () {
+<<<<<<< HEAD
       this.showDialog = true  // dev_1
       this.show = true
+=======
+      this.showDialog = true
+      this.show = true  // dev 2
+>>>>>>> dev_2
     },
     handelDialogClick () {
       this.showDialog = false

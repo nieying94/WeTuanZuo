@@ -27,8 +27,8 @@ export default {
   },
   methods: {
     handleButtonClick () {
-      this.showDialog = true  // dev_1
-      this.show = true  // dev 2
+      this.showDialog = true
+      this.show = true
     },
     handelDialogClick () {
       this.showDialog = false

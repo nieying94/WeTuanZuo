@@ -4,7 +4,16 @@ from django_filters.rest_framework import FilterSet
 from rest_framework import serializers
 from backend.user.serializers import AuthorSerializer
 
-from .models import Project
+from .models import (
+    Skill,
+    Project,
+)
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Skill
+        fields = '__all__'
 
 
 class JSONSerializerField(serializers.Field):
@@ -28,6 +37,7 @@ class ProjectListSerializer(serializers.ModelSerializer):
 class ProjectDetailSerializer(serializers.ModelSerializer):
     created_by = AuthorSerializer(read_only=True)
     images = JSONSerializerField()
+    skills = ProjectSerializer(many=True, read_only=True)
 
     class Meta:
         model = Project

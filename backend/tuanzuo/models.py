@@ -10,6 +10,14 @@ auth_user_model = getattr(settings, 'AUTH_USER_MODEL', 'backend.user.User')
 
 
 # Create your models here.
+class Skill(Model):
+    class Meta:
+        verbose_name = verbose_name_plural = '技巧'
+
+    name = models.CharField('名称', max_length=64, blank=True, default='')
+
+    def __str__(self):
+        return self.name
 
 
 class Project(Model):
@@ -41,6 +49,7 @@ class Project(Model):
     end = models.DateTimeField('结束日期', default=timezone.now)
 
     images = JSONField('图片列表', blank=True, default=[])
+    detail_images = JSONField('详情图片列表', blank=True, default=[])
     description = models.TextField('详细描述', blank=True, default='')
 
     created_by = models.ForeignKey(
@@ -50,6 +59,8 @@ class Project(Model):
     created_at = models.DateTimeField('加入时间', default=timezone.now)
     swiper = models.BooleanField('首页轮播展示', default=False)
     recommend = models.BooleanField('首页推荐展示', default=False)
+
+    skills = models.ManyToManyField(Skill)
 
     def __str__(self):
         return self.name

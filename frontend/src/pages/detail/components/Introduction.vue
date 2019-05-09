@@ -9,9 +9,9 @@
       <div
         class="item-detail-img"
         v-for="item of imgs"
-        :key="item.id"
+        :key="item.index"
       >
-        <img :src="item.imgUrl" />
+        <img :src="item" />
       </div>
     </div>
     <div class="item-detail">
@@ -22,15 +22,15 @@
         :key="item.id"
         >
         <span class="iconfont detail-skill-icon">&#xe659;</span>
-        {{item.text}}
+        {{item.name}}
       </div>
     </div>
     <div class="item-author">
       <h2 class="item-author-title">团长介绍</h2>
       <div class="author-header">
-        <img :src="author.imgUrl" />
+        <img src="https://tva3.sinaimg.cn/crop.0.0.664.664.180/ab7df37ejw8f0fsjmib16j20ig0ig404.jpg" />
       </div>
-      <p>{{author.introText}}</p>
+      <p>{{author}}</p>
     </div>
   </div>
 </template>
@@ -41,7 +41,7 @@ export default {
   props: {
     imgs: Array,
     list: Array,
-    author: Object
+    author: String
   }
 }
 </script>

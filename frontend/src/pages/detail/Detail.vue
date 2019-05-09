@@ -28,7 +28,7 @@ export default {
       gallaryImgs: [],
       detailImgs: [],
       skiList: [],
-      author: {}
+      author: ''
     }
   },
   components: {
@@ -47,10 +47,10 @@ export default {
       console.log(res)
       if (res) {
         this.bannerImg = res.logo
-        this.gallaryImgs = res.gallaryImgs
-        this.detailImgs = res.detailImgs
-        this.skiList = res.skiList
-        this.author = res.author
+        this.gallaryImgs = res.images
+        this.detailImgs = res.images
+        this.skiList = res.skills
+        this.author = res.description
       }
     }
   },

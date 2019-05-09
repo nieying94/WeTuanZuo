@@ -4,7 +4,7 @@
         <routerLink
           tag="li"
           class="item border-bottom"
-          v-for="item of list.slice(1,5)"
+          v-for="item of list.slice(0,5)"
           :key="item.id"
           :to="'/detail/' + item.id"
         >

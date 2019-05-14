@@ -2,7 +2,7 @@ from django.utils import timezone
 from django_filters import BooleanFilter
 from django_filters.rest_framework import FilterSet
 from rest_framework import serializers
-from backend.user.serializers import AuthorSerializer
+from backend.user.serializers import UserAuthSerializer
 
 from .models import (
     Skill,
@@ -35,7 +35,7 @@ class ProjectListSerializer(serializers.ModelSerializer):
 
 
 class ProjectDetailSerializer(serializers.ModelSerializer):
-    created_by = AuthorSerializer(read_only=True)
+    created_by = UserAuthSerializer(read_only=True)
     images = JSONSerializerField()
     skills = ProjectSerializer(many=True, read_only=True)
 

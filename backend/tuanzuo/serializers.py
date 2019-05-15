@@ -48,9 +48,8 @@ class ProjectFilterSet(FilterSet):
     future = BooleanFilter(method='start_gte_now')
 
     def start_gte_now(self, queryset, name, value):
-        print(123)
         if value:
-            return queryset.filter('start__gte', timezone.now())
+            return queryset.filter(start__gte=timezone.now())
         return queryset
 
     class Meta:

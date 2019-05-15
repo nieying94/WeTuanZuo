@@ -18,10 +18,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 try:
     with open('%s/config/settings.yaml' % BASE_DIR, 'r') as _:
-        _settings = yaml.load(_)
+        _settings = yaml.full_load(_)
 except FileNotFoundError:
     with open('%s/config/settings.sample.yaml' % BASE_DIR, 'r') as _:
-        _settings = yaml.load(_)
+        _settings = yaml.full_load(_)
 
 
 SYSTEM_NAME = _settings['project']['name']
@@ -179,7 +179,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', 'dist', 'static'),
+    os.path.join(BASE_DIR, 'frontend', 'mobile', 'dist', 'static'),
+    # os.path.join(BASE_DIR, 'frontend', 'backend', 'dist', 'static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

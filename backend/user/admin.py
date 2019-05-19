@@ -10,14 +10,14 @@ from .models import (
 
 @admin.register(User)
 class UserAdmin(AuthUserAdmin):
-    list_display = ('id', 'username', 'nickname', 'is_superuser', 'created_at')
+    list_display = ('id', 'username', 'gender', 'is_staff', 'created_at')
     search_fields = ('username', 'nickname')
-    list_filter = ('is_staff', 'is_superuser')
+    list_filter = ('gender', 'is_staff', 'is_superuser')
     ordering = ('id',)
 
     add_fieldsets = (
         (None, {
-            'classes': ('wide',),
+            'classes': ('wide', ),
             'fields': ('username', 'nickname', 'password1', 'password2'),
         }),
     )
@@ -26,6 +26,8 @@ class UserAdmin(AuthUserAdmin):
         ('基础信息', {'fields': (
             'username',
             'nickname',
+            'gender',
+            'avatar',
             'password',
         )}),
         ('其他信息', {'fields': (

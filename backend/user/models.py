@@ -45,8 +45,20 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = verbose_name_plural = '基础用户表'
 
+    GENDER_UNKNOWN = 0
+    GENDER_MALE = 1
+    GENDER_FEMALE = 2
+    GENDER_CHOICES = (
+        (GENDER_MALE, '男'),
+        (GENDER_FEMALE, '女'),
+    )
+
     username = models.CharField(_('用户名'), max_length=150, unique=True)
-    nickname = models.CharField(_('昵称'), max_length=30)
+    nickname = models.CharField(_('昵称'), max_length=30,
+                                blank=True, default='')
+    gender = models.SmallIntegerField(_('性别'), choices=GENDER_CHOICES,
+                                      default=GENDER_UNKNOWN)
+    avatar = models.URLField(_('头像'), blank=True, default='')
 
     is_active = models.BooleanField(_('是否有效'), default=True)
     is_staff = models.BooleanField(_('是否为管理员'), default=False)

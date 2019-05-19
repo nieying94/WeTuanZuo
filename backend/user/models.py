@@ -49,6 +49,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     GENDER_MALE = 1
     GENDER_FEMALE = 2
     GENDER_CHOICES = (
+        (GENDER_UNKNOWN, '未知'),
         (GENDER_MALE, '男'),
         (GENDER_FEMALE, '女'),
     )

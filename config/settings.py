@@ -63,7 +63,6 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -99,6 +98,9 @@ if DEBUG:
         'x-requested-with',
         'Pragma',
     )
+else:
+    MIDDLEWARE.insert(5, 'django.middleware.csrf.CsrfViewMiddleware')
+
 
 ROOT_URLCONF = 'config.urls'
 
@@ -190,6 +192,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # https://www.django-rest-framework.org/
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'backend.user.authentication.SessionAuthentication'
+    ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     ),

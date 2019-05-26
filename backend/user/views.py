@@ -1,7 +1,7 @@
 import json
 
 from django.contrib.auth import login, logout
-from rest_framework.views import APIView
+from rest_framework.exceptions import APIException
 from rest_framework.mixins import (
     CreateModelMixin,
     UpdateModelMixin,
@@ -11,6 +11,7 @@ from rest_framework.status import (
     HTTP_201_CREATED,
     HTTP_204_NO_CONTENT,
 )
+from rest_framework.views import APIView
 
 from .models import User
 from .serializers import UserAuthSerializer
@@ -30,9 +31,9 @@ class ApiUserRegisterView(
 
         user = User.objects.filter(username=username).first()
         if user:
-            raise Exception('该用户名已存在')
+            raise APIException('该用户名已存在')
         if not password:
-            raise Exception('密码不能为空')
+            raise APIException('密码不能为空')
 
         user = User.objects.create_user(username, password, username=username)
 
@@ -54,7 +55,7 @@ class ApiUserAuthView(
     def get(self, request, *args, **kwargs):
         user = request.user
         if not user.is_authenticated:
-            raise Exception('未登录')
+            raise APIException('未登录')
 
         serializer = UserAuthSerializer(user)
         return Response(serializer.data)
@@ -66,9 +67,9 @@ class ApiUserAuthView(
         password = json_data.get('password', '')
         user = User.objects.filter(username=username).first()
         if not user:
-            raise Exception('用户不存在')
+            raise APIException('用户不存在')
         if not user.check_password(password):
-            raise Exception('密码错误')
+            raise APIException('密码错误')
         login(request, user)
 
         serializer = UserAuthSerializer(user)
@@ -83,7 +84,7 @@ class ApiUserAuthView(
         # logout
         user = request.user
         if not user.is_authenticated:
-            raise Exception('未登录')
+            raise APIException('未登录')
 
         logout(request)
 
